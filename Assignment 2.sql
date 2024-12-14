@@ -12,13 +12,10 @@ Contact_No varchar(15) unique not null
 
 desc Orders;
 
-# Adding a new column named Order quantuty 
 alter table Orders add column Order_Quantity int not null;
 
-# Rename the order table to the sales order table
 rename table Orders to Sales_Orders;
 
-# inserting 10 rows into sales order table
 insert into Sales_Orders (Order_Id, Customer_name, Product_Category, Ordered_item, Contact_No, Order_Quantity)
 values
 (1, 'Alice', 'Electronics', 'Smartphone', '8624503157',15),
@@ -34,13 +31,10 @@ values
 
 select * from Sales_Orders;
 
-# Retriving Customer name and Order item 
 select Customer_Name, Ordered_Item from Sales_Orders;
 
-# Change the name of the product for any row
 update Sales_Orders set Ordered_Item = 'Chair' where Order_Id = 8;
 
 select * from Sales_Orders;
 
-# Delete the Sales order table
 drop table Sales_Orders;
