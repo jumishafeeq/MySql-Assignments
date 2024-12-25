@@ -58,26 +58,37 @@ SELECT CONCAT(Fname,' ', Lname) AS Full_name FROM Persons;
 -- Count the no.of unique country names from person table
 SELECT COUNT(DISTINCT(Country_name)) AS Unique_Country_count FROM Persons;
 
+-- Maximum population from the country table
 SELECT MAX(Population) AS Maximum_population FROM Country;
 
+-- Minimum population from persons table
 SELECT MIN(Population) AS Minimum_population FROM Persons;
 
+-- Inserting 2 rows to the persons table making last name is null
 INSERT INTO Persons (Id, Fname, Lname, Population, Rating, Country_Id, Country_name) VALUES 
 (11, 'Rahul', NULL, 1393409038, 3.5, 2, 'India'),
 (12, 'Toms', NULL, 331000000, 4.0, 1, 'USA');
 
+-- Count last names from persons table
 SELECT COUNT(Lname) AS Count_LastNames FROM Persons WHERE Lname IS NOT NULL;
 
+-- Number of rows in the persons table
 SELECT COUNT(*) AS Total_Rows FROM Persons;
 
+-- Population of the country table for the first 3 rows (use LIMIT)
 SELECT Population FROM Persons LIMIT 3;
 
+-- 3 random rows of countries (use RAND() & LIMIT)
 SELECT * FROM Country ORDER BY RAND() LIMIT 3;
 
+-- All persons ordered by their rating in descending order
 SELECT * FROM Persons ORDER BY Rating DESC;
 
+-- Total population for each country in the persons table
 SELECT Country_name, SUM(Population) AS Total_Population From Persons GROUP BY Country_name;
 
+-- Countries in the persons table with a total popultion greater than 50000
 SELECT Country_name, SUM(Population) AS Total_Population FROM Persons GROUP BY Country_name HAVING Total_Population > 50000;
 
-SELECT Country_name, COUNT(*) AS Total_Persons, AVG(Rating) AS Average_Rating FROM Persons GROUP BY Country_name HAVING Total_Persons > 2 ORDER BY Average_Rating ASC;
+-- Total no.of persons & average rating for each country (countries with more than 2 persons, ordered by the average rating in ascending order)
+SELECT Country_name, COUNT(*) AS Total_Persons, AVG(Rating) AS Average_Rating FROM Persons GROUP BY Country_name HAVING Total_Persons > 2 ORDER BY Average_rating ASC;
