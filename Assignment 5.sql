@@ -80,4 +80,4 @@ SELECT Country_name, SUM(Population) AS Total_Population From Persons GROUP BY C
 
 SELECT Country_name, SUM(Population) AS Total_Population FROM Persons GROUP BY Country_name HAVING Total_Population > 50000;
 
-SELECT Country_name, COUNT(*) AS Total_Persons, AVG(Rating) AS Average_Rating FROM Persons GROUP BY Country_name HAVING Total_Persons > 2;
+SELECT Country_name, COUNT(*) AS Total_Persons, AVG(Rating) AS Average_Rating FROM Persons GROUP BY Country_name HAVING Total_Persons > 2 ORDER BY Average_Rating ASC;
