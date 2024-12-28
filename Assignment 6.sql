@@ -1,18 +1,27 @@
 USE POPULATION;
-SELECT P.Id AS Person_Id, P.Fname, P.Lname, c.Country_name
-FROM Persons p
-INNER JOIN Country c ON p.Country_Id = c.Id;
-SELECT p.Id AS Person_Id, p.Fname, p.Lname, c.Country_name
-FROM Persons p
-LEFT JOIN Country c ON p.Country_Id = c.Id;
-SELECT p.Id AS Person_Id, p.Fname, p.Lname, c.Country_name
-FROM Persons p
-RIGHT JOIN Country c ON p.Country_Id = c.Id;
-SELECT DISTINCT Country_name FROM Country
+
+-- INNER JOIN
+SELECT P.Id AS Person_Id, P.Fname AS First_Name, P.Lname AS Last_Name, C.Country_name FROM Persons P
+INNER JOIN Country C ON P.Country_Id = C.Id;
+
+-- LEFT JOIN
+SELECT P.Id AS Person_Id, P.Fname AS First_Name, P.Lname AS Last_Name, C.Country_name FROM Persons P
+LEFT JOIN Country C ON P.Country_Id = C.Id;
+
+-- RIGHT JOIN
+SELECT P.Id AS Person_Id, P.Fname AS First_Name, P.Lname AS Last_Name, C.Country_name FROM Persons P
+RIGHT JOIN Country C ON P.Country_Id = C.Id;
+
+-- All distinct country from both table
+SELECT Country_name FROM Country
 UNION
-SELECT DISTINCT Country_name FROM Persons;
+SELECT Country_name FROM Persons;
+
+-- All country names from both tables (include duplicates)
 SELECT Country_name FROM Country
 UNION ALL
 SELECT Country_name FROM Persons;
-SELECT Id, Fname, Lname, Population, ROUND(Rating) AS Rounded_Rating, Country_Id, Country_name
+
+-- Round the ratings of all persons to the nearest integer
+SELECT Id, Fname AS First_Name, Lname AS Last_Name, Population, ROUND(Rating) AS Rounded_Rating, Country_Id, Country_name
 FROM Persons;
