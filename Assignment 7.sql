@@ -6,6 +6,7 @@ SELECT * FROM Persons;
 -- Adding new column in Person table
 ALTER TABLE Persons ADD COLUMN DOB DATE;
 
+-- Inserting values into column DOB
 UPDATE Persons SET DOB = '1985-05-15' WHERE Id = 1;
 UPDATE Persons SET DOB = '1990-03-22' WHERE Id = 2;
 UPDATE Persons SET DOB = '1980-11-02' WHERE Id = 3;
