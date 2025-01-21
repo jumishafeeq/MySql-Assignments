@@ -1,7 +1,6 @@
 CREATE DATABASE School;
 USE School;
 
-
 CREATE TABLE Teachers (
    Id INT PRIMARY KEY AUTO_INCREMENT,
    Name VARCHAR(50),
