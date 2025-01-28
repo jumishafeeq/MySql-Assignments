@@ -49,7 +49,8 @@ SELECT * FROM Worker;
 DELIMITER //
 CREATE PROCEDURE Workers_Salary(IN P_WorkerId INT, OUT P_Salary INT)
 BEGIN
-SELECT Salary INTO P_Salary FROM Worker WHERE Worker_Id = P_WorkerId;
+	SELECT Salary INTO P_Salary FROM Worker 
+	WHERE Worker_Id = P_WorkerId;
 END //
 DELIMITER ;
 
@@ -61,7 +62,8 @@ SELECT @P_Salary AS Salary;
 DELIMITER //
 CREATE PROCEDURE Update_Department(IN P_WorkerId INT, IN P_Department CHAR(25))
 BEGIN
-Update Worker SET Department = P_Department WHERE Worker_Id = P_WorkerId;
+	Update Worker SET Department = P_Department 
+	WHERE Worker_Id = P_WorkerId;
 END //
 DELIMITER ;
 
@@ -72,7 +74,8 @@ SELECT * FROM Worker;
 DELIMITER //
 CREATE PROCEDURE Workers_Count(IN P_Department CHAR(25), OUT P_WorkerCount INT)
 BEGIN
-SELECT COUNT(*) INTO P_WorkerCount FROM Worker WHERE Department = P_Department;
+	SELECT COUNT(*) INTO P_WorkerCount FROM Worker 
+	WHERE Department = P_Department;
 END //
 DELIMITER ;
 
@@ -84,7 +87,8 @@ SELECT @P_WorkerCount AS No_of_workers;
 DELIMITER //
 CREATE PROCEDURE Average_Salary(IN P_Department CHAR(25), OUT P_AvgSalary DECIMAL(10,2))
 BEGIN
-SELECT AVG(Salary) INTO P_AvgSalary FROM Worker WHERE Department = P_Department;
+	SELECT AVG(Salary) INTO P_AvgSalary FROM Worker 
+	WHERE Department = P_Department;
 END //
 DELIMITER ;
 
