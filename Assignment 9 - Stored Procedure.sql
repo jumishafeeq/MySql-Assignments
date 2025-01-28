@@ -36,8 +36,8 @@ CREATE PROCEDURE Add_Record(
      IN JoinDate DATETIME, 
      IN Dprtmt CHAR(25))
 BEGIN
-INSERT INTO Worker(Worker_Id, First_name, Last_Name, Salary, Joining_Date, Department)
-VALUES(WorkerId, FName, LName, Slry, JoinDate, Dprtmt);
+	INSERT INTO Worker(Worker_Id, First_name, Last_Name, Salary, Joining_Date, Department)
+	VALUES(WorkerId, FName, LName, Slry, JoinDate, Dprtmt);
 END //
 DELIMITER ;
 
